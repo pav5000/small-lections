@@ -29,7 +29,7 @@ sudo docker run --rm -ti --network host --name memcache memcached memcached -m 6
 ## Смотрим на протокол
 
 Ключ -- текстовая строка длиной до 250 байт. Запрещены контрольные символы и пробелы.
-![Джейсон запрещает нам](https://i.imgflip.com/51wax2.jpg | width=100)
+![Джейсон запрещает нам](images/jason.jpg)
 
 Значение -- любые бинарные данные.
 
