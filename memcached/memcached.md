@@ -110,3 +110,36 @@ END
 
 ## Работаем из golang
 
+```golang
+package main
+
+import (
+	"fmt"
+
+    // Что интересно, автор этого пакета создал мемкэш
+    // И он же является одним из основных разработчиков golang
+	"github.com/bradfitz/gomemcache/memcache"
+)
+
+func main() {
+	mc := memcache.New("127.0.0.1:11211") // Тут можем перечислить несколько серверов
+
+	err := mc.Set(&memcache.Item{
+		Key:        "testkey",
+		Value:      []byte("some value"),
+		Expiration: 20,
+	})
+	if err != nil {
+		panic(err)
+	}
+
+	it, err := mc.Get("testkey")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Key:", string(it.Key))
+	fmt.Println("Value:", string(it.Value))
+}
+```
+
